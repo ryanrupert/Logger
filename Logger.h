@@ -13,14 +13,14 @@ template<typename T>
 class Logger
 {
 	public:
-	enum Level { ERROR, WARNING, INFO };
-	void setProd(bool prod);
-	void setLevel(Level lev);
-	void message(std::string mes);
-	void varariable(T var);
+		enum Level { ERROR, WARNING, INFO };
+		void setProd(bool prod);
+		void setLevel(Level lev);
+		void message(std::string mes);
+		void varariable(std::string mes, T var);
 
 	private:
-	bool production = false;
-	Level level = ERROR;
-	void log();
+		bool production = false;
+		Level level = ERROR;
+		void log();
 };
