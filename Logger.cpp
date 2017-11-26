@@ -16,3 +16,8 @@ void Logger::setLevel(Level lev)
 {
 	level = lev;
 }
+
+void Logger::setMethod(Method type)
+{
+	method = type;
+}
