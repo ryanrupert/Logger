@@ -17,6 +17,8 @@ class Logger
 		enum Method { CONSOLE, OFILE, BOTH };
 		void setProd(bool prod);
 		void setLevel(Level lev);
+		void setMethod(Method type);
+		void setMothod(Method type, std::string file);
 		void message(std::string mes);
 		void varariable(std::string mes, T var);
 
