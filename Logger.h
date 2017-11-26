@@ -6,7 +6,7 @@
 */
 
 #include <iostream>
-#include <ofstream>
+#include <fstream>
 
 template<typename T>
 
