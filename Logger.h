@@ -14,6 +14,7 @@ class Logger
 {
 	public:
 		enum Level { ERROR, WARNING, INFO };
+		enum Method { CONSOLE, OFILE, BOTH };
 		void setProd(bool prod);
 		void setLevel(Level lev);
 		void message(std::string mes);
@@ -22,5 +23,6 @@ class Logger
 	private:
 		bool production = false;
 		Level level = ERROR;
+		Method method = CONSOLE;
 		void log();
 };
