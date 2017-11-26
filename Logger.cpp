@@ -11,3 +11,8 @@ void Logger::setProd(bool prod)
 {
 	production = prod;
 }
+
+void Logger::setLevel(Level lev)
+{
+	level = lev;
+}
