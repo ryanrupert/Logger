@@ -30,3 +30,9 @@ void Logger::setMethod(Method type, std::string file)
 		out.open(file.c_str());
 	}
 }
+
+void Logger::message(std::string mes)
+{
+	out << std::endl;
+	out << mes << " ";
+}
