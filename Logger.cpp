@@ -41,3 +41,8 @@ void Logger::variable(std::string mes, T var)
 {
 	out << mes << " " << var << " ";
 }
+
+void Logger::variable(T var)
+{
+	out << var;
+}
