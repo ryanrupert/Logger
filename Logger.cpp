@@ -21,3 +21,12 @@ void Logger::setMethod(Method type)
 {
 	method = type;
 }
+
+void Logger::setMethod(Method type, std::string file)
+{
+	method = type;
+	if (method == OFILE || method == BOTH) 
+	{
+		out.open(file.c_str());
+	}
+}
