@@ -54,11 +54,13 @@ void Logger::message(std::string mes)
 	out << mes << " ";
 }
 
+template <typename T>
 void Logger::variable(std::string mes, T var)
 {
 	out << mes << " " << var << " ";
 }
 
+template <typename T>
 void Logger::variable(T var)
 {
 	out << var;

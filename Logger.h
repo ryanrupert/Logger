@@ -8,7 +8,6 @@
 #include <iostream>
 #include <fstream>
 
-template<typename T>
 
 class Logger
 {
@@ -22,7 +21,9 @@ class Logger
 		void setMethod(Method type);
 		void setMothod(Method type, std::string file);
 		void message(std::string mes);
+		template <typename T>
 		void variable(std::string mes, T var);
+		template <typename T>
 		void variable(T var);
 
 	private:
