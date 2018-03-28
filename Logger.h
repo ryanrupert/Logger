@@ -9,6 +9,7 @@
 #include <fstream>
 #include <string>
 
+#define message(mes) messagef(mess, __FILE__, __LINE__)
 
 class Logger
 {
@@ -20,8 +21,8 @@ class Logger
 		void setProd(bool prod);
 		void setLevel(Level lev);
 		void setMethod(Method type);
-		void message(std::string mes);
 		void setMethod(Method type, std::string file);
+		void messagef(std::string mes, std::string file, int line);
 		template <typename T>
 		void variable(std::string mes, T var);
 		template <typename T>

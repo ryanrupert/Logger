@@ -39,15 +39,24 @@ void Logger::setMethod(Method type)
 	method = type;
 }
 
+void Logger::messagef(std::string mes, std::string file, int line)
 {
+	if (level == INFO) 
 	{
+		switch (method)
+		{
+			case BOTH:
+			case CONSOLE:
+				std::cout << "[" << file << ", " << line << "] INFO " << mes << std::endl;
+				if (production == CONSOLE) 
+				{
+					break;
+				}
+			case OFILE:
+				out << "[" << file << ", " << line << "] INFO " << mes << std::endl;
+				break;
+		}
 	}
-}
-
-void Logger::message(std::string mes)
-{
-	out << std::endl;
-	out << mes << " ";
 }
 
 template <typename T>
