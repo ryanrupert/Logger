@@ -48,7 +48,7 @@ void Logger::messagef(std::string mes, std::string file, int line)
 			case BOTH:
 			case CONSOLE:
 				std::cout << "[" << file << ", " << line << "] INFO " << mes << std::endl;
-				if (production == CONSOLE) 
+				if (method == CONSOLE) 
 				{
 					break;
 				}

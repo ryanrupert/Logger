@@ -9,7 +9,7 @@
 #include <fstream>
 #include <string>
 
-#define message(mes) messagef(mess, __FILE__, __LINE__)
+#define message(mes) messagef(mes, __FILE__, __LINE__)
 
 class Logger
 {
