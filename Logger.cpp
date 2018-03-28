@@ -39,12 +39,8 @@ void Logger::setMethod(Method type)
 	method = type;
 }
 
-void Logger::setMethod(Method type, std::string file)
 {
-	method = type;
-	if (method == OFILE || method == BOTH) 
 	{
-		out.open(file.c_str());
 	}
 }
 
@@ -64,4 +60,13 @@ template <typename T>
 void Logger::variable(T var)
 {
 	out << var;
+}
+
+void Logger::setMethod(Method type, std::string file)
+{
+	method = type;
+	if (method == OFILE || method == BOTH) 
+	{
+		out.open(file.c_str());
+	}
 }

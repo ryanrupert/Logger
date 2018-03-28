@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 
 class Logger
@@ -19,8 +20,8 @@ class Logger
 		void setProd(bool prod);
 		void setLevel(Level lev);
 		void setMethod(Method type);
-		void setMothod(Method type, std::string file);
 		void message(std::string mes);
+		void setMethod(Method type, std::string file);
 		template <typename T>
 		void variable(std::string mes, T var);
 		template <typename T>
