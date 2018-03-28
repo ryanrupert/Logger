@@ -15,12 +15,12 @@ Logger::Logger()
 	method = CONSOLE;
 }
 
-//TODO:check if file was opened to prevent errors
 Logger::~Logger()
 {
 	if (method == OFILE || method == BOTH) 
 	{
-		out.close();
+		if(out)
+			out.close();
 	}
 }
 
