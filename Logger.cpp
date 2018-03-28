@@ -7,6 +7,14 @@
 
 #include "Logger.h"
 
+
+Logger::Logger()
+{
+	production = false;
+	level = ERROR;
+	method = CONSOLE;
+}
+
 void Logger::setProd(bool prod)
 {
 	production = prod;

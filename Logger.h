@@ -15,6 +15,7 @@ class Logger
 	public:
 		enum Level { ERROR, WARNING, INFO };
 		enum Method { CONSOLE, OFILE, BOTH };
+		Logger();
 		~Logger();
 		void setProd(bool prod);
 		void setLevel(Level lev);
@@ -25,8 +26,8 @@ class Logger
 		void variable(T var);
 
 	private:
-		bool production = false;
-		Level level = ERROR;
-		Method method = CONSOLE;
-		void log();
+		bool production;
+		Level level;
+		Method method;
+		std::ofstream out;
 };
