@@ -59,11 +59,6 @@ void Logger::messagef(std::string mes, std::string file, int line)
 	}
 }
 
-template <typename T>
-void Logger::variable(std::string mes, T var)
-{
-	out << mes << " " << var << " ";
-}
 
 template <typename T>
 void Logger::variable(T var)
