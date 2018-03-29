@@ -10,8 +10,9 @@
 int main()
 {
 	Logger log;
-	log.setLevel(Logger::INFO);
+	log.setLevel(Logger::WARNING);
 	log.setMethod(Logger::BOTH, "test.txt");
+	//log.setProd(true);
 	int temp = 5;
 
 	log.message("test");

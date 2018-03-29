@@ -56,7 +56,7 @@ void Logger::setMethod(Method type, std::string file)
 
 void Logger::log(Level lev, std::string output)
 {
-	if (lev <= level) 
+	if (lev <= level && !production) 
 	{
 		switch (method)
 		{
