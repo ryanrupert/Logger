@@ -41,22 +41,8 @@ void Logger::setMethod(Method type)
 
 void Logger::messagef(std::string mes, std::string file, int line)
 {
-	if (level == INFO) 
-	{
-		switch (method)
-		{
-			case BOTH:
-			case CONSOLE:
-				std::cout << "[" << file << ", " << line << "] INFO " << mes << std::endl;
-				if (method == CONSOLE) 
-				{
-					break;
-				}
-			case OFILE:
-				out << "[" << file << ", " << line << "] INFO " << mes << std::endl;
-				break;
-		}
-	}
+	std::string output = "[" + file + ", " + patch::to_string(line) + "] INFO " + mes;
+	log(INFO, output);
 }
 
 void Logger::setMethod(Method type, std::string file)
@@ -65,5 +51,25 @@ void Logger::setMethod(Method type, std::string file)
 	if (method == OFILE || method == BOTH) 
 	{
 		out.open(file.c_str());
+	}
+}
+
+void Logger::log(Level lev, std::string output)
+{
+	if (lev <= level) 
+	{
+		switch (method)
+		{
+			case BOTH:
+			case CONSOLE:
+				std::cout << output << std::endl;
+				if (method == CONSOLE) 
+				{
+					break;
+				}
+			case OFILE:
+				out << output << std::endl;
+				break;
+		}
 	}
 }

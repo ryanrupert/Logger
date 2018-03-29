@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "toStringPatch.h"
 
 //function macros
 #define varMessage(lev, mes, var) varMessagef(lev, mes, var, __FILE__, __LINE__)
@@ -36,47 +37,18 @@ class Logger
 		Level level;
 		Method method;
 		std::ofstream out;
+		void log(Level lev, std::string output);
 		char Levels[3][8] = { "ERROR", "WARNING", "INFO"};
 };
 template <typename T>
 void Logger::variablef(Level lev, T var, std::string file, int line)
 {
-	if (lev <= level) 
-	{
-		switch (method)
-		{
-			case BOTH:
-			case CONSOLE:
-				std::cout << "[" << file << ", " << line << "] " << Levels[lev] << " ( " << var << " )" << std::endl;
-
-				if (method == CONSOLE) 
-				{
-					break;
-				}
-			case OFILE:
-				out << "[" << file << ", " << line << "] " << Levels[lev] << " ( " << var << " )" << std::endl;
-				break;
-		}
-	}
+	std::string output = "[" + file + ", " + patch::to_string(line) + "] " + Levels[lev] + " " + "( " + patch::to_string(var) + " )";
+	log(lev, output);
 }
 template <typename T>
 void Logger::varMessagef(Level lev, std::string mes, T var, std::string file, int line)
 {
-	if (lev <= level) 
-	{
-		switch (method)
-		{
-			case BOTH:
-			case CONSOLE:
-				std::cout << "[" << file << ", " << line << "] " << Levels[lev] << " " << mes << " " << "( " << var << " )" << std::endl;
-
-				if (method == CONSOLE) 
-				{
-					break;
-				}
-			case OFILE:
-				out << "[" << file << ", " << line << "] " << Levels[lev] << " " << mes << " " << "( " << var << " )" << std::endl;
-				break;
-		}
-	}
+	std::string output = "[" + file + ", " + patch::to_string(line) + "] " + Levels[lev] + " " + mes + " " + "( " + patch::to_string(var) + " )";
+	log(lev, output);
 }
