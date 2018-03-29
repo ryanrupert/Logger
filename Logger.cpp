@@ -59,13 +59,6 @@ void Logger::messagef(std::string mes, std::string file, int line)
 	}
 }
 
-
-template <typename T>
-void Logger::variable(T var)
-{
-	out << var;
-}
-
 void Logger::setMethod(Method type, std::string file)
 {
 	method = type;
