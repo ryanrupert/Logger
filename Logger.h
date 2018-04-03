@@ -32,6 +32,9 @@ class Logger
 		template <typename T>
 		void variablef(Level lev, T var, std::string file, int line);
 
+		template <typename T>
+		void varAddressf(Level lev, std::string name, T &var, std::string file, int line);
+
 	private:
 		bool production;
 		Level level;
@@ -50,5 +53,11 @@ template <typename T>
 void Logger::varMessagef(Level lev, std::string mes, T var, std::string file, int line)
 {
 	std::string output = "[" + file + ", " + patch::to_string(line) + "] " + Levels[lev] + " " + mes + " " + "( " + patch::to_string(var) + " )";
+	log(lev, output);
+}
+template <typename T>
+void Logger::varAddressf(Level lev, std::string name, T &var, std::string file, int line)
+{
+	std::string output = "[" + file + ", " + patch::to_string(line) + "] " + Levels[lev] + " " + name + " " + "( " + &var + " )";
 	log(lev, output);
 }
