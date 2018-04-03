@@ -17,8 +17,10 @@ Logger::Logger()
 
 Logger::~Logger()
 {
+	//check if the logging method was using the file
 	if (method == OFILE || method == BOTH) 
 	{
+		//check if the file was opened
 		if(out)
 			out.close();
 	}
@@ -45,6 +47,7 @@ void Logger::messagef(std::string mes, std::string file, int line)
 	log(INFO, output);
 }
 
+//TODO:this may need to be a bool
 void Logger::setMethod(Method type, std::string file)
 {
 	method = type;
