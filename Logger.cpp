@@ -28,7 +28,8 @@ Logger::~Logger()
 
 void Logger::setProd(bool prod)
 {
-	production = prod;
+	if(!production)
+		production = prod;
 }
 
 void Logger::setLevel(Level lev)
