@@ -18,5 +18,8 @@ int main()
 	log.message("test");
 	log.variable(Logger::WARNING, "test");
 	log.varMessage(Logger::ERROR, "test", 1);
+	log.varMessage(Logger::ERROR, "temp var", temp);
+	log.varAddress(Logger::ERROR, "temp var", temp);
+	std::cout << "this is non-log" << std::endl;
 	return 0;
 }
