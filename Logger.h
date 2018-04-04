@@ -14,6 +14,7 @@
 #define varMessage(lev, mes, var) varMessagef(lev, mes, var, __FILE__, __LINE__)
 #define variable(lev, var) variablef(lev, var, __FILE__, __LINE__)
 #define message(mes) messagef(mes, __FILE__, __LINE__)
+#define varAddress(lev, name, var) varAddressf(lev, name, var, __FILE__, __LINE__)
 
 class Logger
 {
@@ -58,6 +59,6 @@ void Logger::varMessagef(Level lev, std::string mes, T var, std::string file, in
 template <typename T>
 void Logger::varAddressf(Level lev, std::string name, T &var, std::string file, int line)
 {
-	std::string output = "[" + file + ", " + patch::to_string(line) + "] " + Levels[lev] + " " + name + " " + "( " + &var + " )";
+	std::string output = "[" + file + ", " + patch::to_string(line) + "] " + Levels[lev] + " " + name + " " + "( " + patch::to_string(&var) + " )";
 	log(lev, output);
 }
